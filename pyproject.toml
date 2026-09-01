@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aci-vpu"
+version = "0.1.0"
+description = "ACI-VPU - Artificial Cognition Infrastructure, a Virtual Processing Unit for cognition: private, persistent, provenance-aware memory any AI can call."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Devadipta Das" }]
+keywords = ["cognition", "monad", "uqrt-mca", "memory", "ai-infrastructure"]
+license = { text = "Apache-2.0" }          # open-core: Apache-2.0 (adds a patent grant) on the single-node engine
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries",
+    "Environment :: Console",
+]
+dependencies = ["numpy", "pypdf"]         # vectorized index + PDF loading
+
+[project.urls]
+Homepage = "https://github.com/DevadiptaDas/aci-vpu"
+Repository = "https://github.com/DevadiptaDas/aci-vpu"
+Issues = "https://github.com/DevadiptaDas/aci-vpu/issues"
+
+[project.optional-dependencies]
+semantic = ["sentence-transformers"]      # local semantic embeddings (the default; runs in backend)
+nlp = ["spacy"]                           # self-contained SPO extractor (then: python -m spacy download en_core_web_sm)
+secure = ["cryptography"]                 # upgrades at-rest encryption to AES (stdlib HMAC cipher used otherwise)
+scale = ["usearch"]                        # ANN index for large stores (prebuilt wheels, no compiler); auto-used when present
+vision = ["sentence-transformers", "pillow"]   # semantic photo/image search (CLIP)
+ocr = ["rapidocr-onnxruntime", "pillow"]       # screen OCR (D3) - on-device, no external binary
+appwatch = ["uiautomation"]                    # full focused-app text (D2)
+full = ["sentence-transformers", "spacy", "numpy", "pypdf", "cryptography", "usearch",
+        "pillow", "rapidocr-onnxruntime", "uiautomation"]
+
+[project.scripts]
+aci = "aci.cli:main"                       # `aci serve`, `aci recall`, ...
+aci-demo = "aci.demo:main"                # `pip install aci-vpu && aci-demo` -- the 60-second demo
+aci-mcp = "aci.mcp_server:main"            # the MCP stdio server (point your AI client's config here)
+aci-mcp-setup = "aci.mcp_setup:main"      # portable one-shot: register ACI with Claude Desktop / Cursor
+aci-doctor = "aci.doctor:main"             # one-command health check (services, MCP, protocol)
+
+[tool.setuptools]
+packages = ["aci"]

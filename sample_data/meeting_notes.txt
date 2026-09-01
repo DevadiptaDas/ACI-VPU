@@ -1,0 +1,6 @@
+Operations Sync - Notes
+
+We reviewed the data-center migration timeline. The team agreed to keep the
+server room temperature monitored closely during the move. Action item: confirm
+the Acme renewal paperwork before the December deadline. Finance flagged that
+cloud spend rose last quarter and asked for an optimization plan.

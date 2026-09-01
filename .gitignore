@@ -1,0 +1,43 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+# local databases / scratch  (NEVER commit — contains confidential content)
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.db-*
+*.sqlite
+*.sqlite3
+aci_server.db
+aci_data.db
+aci_smoke_test.db
+aci_connections.json          # free-tier connection registry (local state)
+_*.db
+_universal_demo.db
+_*.py                         # scratch/probe scripts
+# secrets / keys
+*.key
+*.pem
+*.pfx
+.env.*
+# bundled/downloaded models (too big for git — ship via GitHub Releases)
+*.gguf
+*.bin
+models/*.gguf
+# test/type caches
+.pytest_cache/
+.mypy_cache/
+# OS junk
+.DS_Store
+Thumbs.db
+
+# runtime logs (may contain paths/queries) — never publish
+*.log
+aci.log

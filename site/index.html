@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ACI-VPU — your AI remembers, and costs less</title>
+<meta name="description" content="A private, on-device memory + cost engine for any AI. Keeps your facts straight, cuts redundant model calls. 100% local, no cloud." />
+<style>
+  :root{--bg:#0b0d10;--panel:#14171c;--line:#242a31;--fg:#e7ecf2;--mut:#93a0ad;--acc:#5ad1a0;--acc2:#6aa6ff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--acc2);text-decoration:none} a:hover{text-decoration:underline}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+  nav .brand{font-weight:700;letter-spacing:.3px}
+  nav .brand span{color:var(--acc)}
+  nav a{margin-left:18px;color:var(--mut)}
+  .hero{padding:64px 0 32px;text-align:center}
+  h1{font-size:44px;line-height:1.15;margin:0 0 14px}
+  h1 .g{color:var(--acc)}
+  .sub{color:var(--mut);font-size:19px;max-width:640px;margin:0 auto 28px}
+  .cmd{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+       padding:14px 18px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;text-align:left}
+  .cmd .c{color:var(--acc)} .cmd .m{color:var(--mut)}
+  .gif{margin:36px auto;max-width:760px;border:1px solid var(--line);border-radius:12px;background:var(--panel);
+       aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--mut);text-align:center;padding:20px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .card h3{margin:0 0 8px;font-size:17px}
+  .card h3 .d{color:var(--acc)}
+  .card p{margin:0;color:var(--mut);font-size:14.5px}
+  .try{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;margin:30px 0}
+  .try h3{margin:0 0 10px}
+  pre{margin:10px 0 0;overflow:auto;background:#0e1116;border:1px solid var(--line);border-radius:8px;padding:14px;
+      font-family:ui-monospace,Consolas,monospace;font-size:13.5px;color:#cdd6e0}
+  footer{border-top:1px solid var(--line);margin-top:48px;padding:26px 0;color:var(--mut);font-size:13.5px;text-align:center}
+  @media(max-width:640px){.cards{grid-template-columns:1fr}h1{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="brand">ACI<span>·</span>VPU</div>
+    <div>
+      <!-- TODO(founder): set these links -->
+      <a href="https://github.com/YOUR-ORG/aci-vpu">GitHub</a>
+      <a href="https://pypi.org/project/aci-vpu/">PyPI</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Your AI <span class="g">remembers.</span><br/>Your AI <span class="g">costs less.</span></h1>
+    <p class="sub">A private, on-device memory + cost engine for any AI — Claude, GPT, or a local model.
+       It keeps your facts straight and cuts the redundant calls. 100% local. Nothing leaves your machine.</p>
+    <div class="cmd">
+      <span class="m"># the 60-second proof</span><br/>
+      <span class="c">pip install</span> "aci-vpu[full]"<br/>
+      <span class="c">py</span> demo.py
+    </div>
+  </section>
+
+  <!-- TODO(founder): record with  DEMO_PAUSE=0.6 py demo.py  and drop demo.gif here -->
+  <div class="gif">[ demo.gif — the 60-second proof: remembers · keeps facts straight · costs less ]</div>
+
+  <div class="cards">
+    <div class="card"><h3><span class="d">✦</span> Remembers</h3>
+      <p>One memory across every AI you use. It recalls your files, notes, and past sessions by meaning — locally.</p></div>
+    <div class="card"><h3><span class="d">✦</span> Keeps facts straight</h3>
+      <p>Returns the <em>current</em> fact, suppresses the stale one, and flags low-trust rumors. Truth, not just similarity.</p></div>
+    <div class="card"><h3><span class="d">✦</span> Costs less</h3>
+      <p>Answers from your own memory, so the model call — and its tokens and bill — never happens.</p></div>
+  </div>
+
+  <div class="try">
+    <h3>Try it inside Claude / Cursor in 2 minutes</h3>
+    <p style="color:var(--mut);margin:0">ACI ships an MCP server — connect it and your AI recalls from and writes to your memory automatically.</p>
+    <pre>claude mcp add aci --env ACI_URL=http://127.0.0.1:7077 -- py "&lt;path&gt;/mcp_aci.py"</pre>
+  </div>
+
+  <footer>
+    Local-first · your data never leaves your machine · truth-aware memory for any AI.<br/>
+    <!-- TODO(founder): confirm license (see packaging note) --> MIT (pending confirmation) · built by Devadipta Das.
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "aci": {
+      "command": "py",
+      "args": ["E:\\Commercial\\Business\\AIOS Master Folder\\ACI- VPU\\mcp_aci.py"],
+      "env": { "ACI_URL": "http://127.0.0.1:7077" }
+    }
+  }
+}

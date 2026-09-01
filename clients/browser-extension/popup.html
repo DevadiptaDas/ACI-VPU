@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font: 13px -apple-system, Segoe UI, sans-serif; width: 320px; margin: 0;
+         padding: 14px; color: #1a1a1a; }
+  h1 { font-size: 15px; margin: 0 0 2px; }
+  .sub { color: #777; font-size: 11px; margin-bottom: 12px; }
+  .row { display: flex; align-items: center; justify-content: space-between;
+         margin: 9px 0; gap: 8px; }
+  label { font-weight: 600; }
+  input[type=text] { width: 100%; box-sizing: border-box; padding: 5px 7px;
+         border: 1px solid #ccc; border-radius: 6px; font-size: 12px; }
+  textarea { width: 100%; box-sizing: border-box; height: 58px; padding: 5px 7px;
+         border: 1px solid #ccc; border-radius: 6px; font-size: 12px; resize: vertical; }
+  .stat { background: #f3f5f9; border-radius: 8px; padding: 9px 11px; margin: 10px 0; }
+  .stat b { font-size: 18px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+         margin-right: 5px; vertical-align: middle; }
+  .ok { background: #1ea672; } .bad { background: #d23; }
+  .muted { color: #888; font-size: 11px; }
+  button { font-size: 12px; padding: 5px 10px; border: 1px solid #bbb;
+           border-radius: 6px; background: #fff; cursor: pointer; }
+  a { color: #2d6cdf; cursor: pointer; }
+  /* toggle */
+  .sw { position: relative; width: 42px; height: 24px; }
+  .sw input { opacity: 0; width: 0; height: 0; }
+  .sl { position: absolute; inset: 0; background: #ccc; border-radius: 24px; transition: .2s; }
+  .sl:before { content: ""; position: absolute; height: 18px; width: 18px; left: 3px;
+               bottom: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+  input:checked + .sl { background: #2d6cdf; }
+  input:checked + .sl:before { transform: translateX(18px); }
+</style>
+</head>
+<body>
+  <h1>ACI Web Capture</h1>
+  <div class="sub">Pages you read → your local ACI memory. On-device only.</div>
+
+  <div class="row">
+    <label>Capture browsing</label>
+    <span class="sw"><input type="checkbox" id="enabled"><span class="sl"></span></span>
+  </div>
+
+  <div class="stat">
+    <div><span class="dot" id="dot"></span><span id="conn" class="muted">checking ACI…</span></div>
+    <div style="margin-top:6px"><b id="count">0</b> pages captured</div>
+    <div class="muted" id="last"></div>
+  </div>
+
+  <div class="row" style="display:block">
+    <label>ACI address</label>
+    <input type="text" id="aci" placeholder="http://127.0.0.1:7077">
+  </div>
+  <div class="row" style="display:block">
+    <label>API key <span class="muted">(only if you set one)</span></label>
+    <input type="text" id="apiKey" placeholder="leave blank if none">
+  </div>
+  <div class="row" style="display:block">
+    <label>Never capture these sites</label>
+    <textarea id="excludes" placeholder="one domain per line"></textarea>
+    <div class="muted">Banking / mail / auth domains. One per line.</div>
+  </div>
+
+  <div class="row">
+    <a id="console">Open ACI Console ↗</a>
+    <button id="reset">Reset count</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
