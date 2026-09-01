@@ -1,5 +1,9 @@
 # ACI-VPU — Artificial Cognition Infrastructure · Virtual Processing Unit
 
+[![CI](https://github.com/DevadiptaDas/ACI-VPU/actions/workflows/ci.yml/badge.svg)](https://github.com/DevadiptaDas/ACI-VPU/actions/workflows/ci.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
+
 **A virtual processing unit for cognition.** The way a GPU is a processing unit for graphics, ACI-VPU is one for *memory and understanding* — a layer any AI or program calls to remember, reconcile, and retrieve. It gives an AI private, persistent, provenance-aware memory, so a grounded fact beats a lie repeated five times, and repeated context, inference and cloud calls get reused instead of re-paid.
 
 ```bash
